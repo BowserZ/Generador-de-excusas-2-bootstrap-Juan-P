@@ -1,0 +1,14 @@
+body{
+    background-color: #BAD8B6;
+}
+
+.titulo{
+    background-color: #8D77AB;
+}
+
+.box {
+    max-width: 35rem;
+    min-width: 35rem;
+    background-color: #E1EACD;
+    border: 2px solid #8D77AB;
+  }

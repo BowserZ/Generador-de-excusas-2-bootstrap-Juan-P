@@ -1,11 +1,38 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let nombre = prompt("Ingresa un nombre:");
+let lugar = prompt("Ingresa un lugar:");
+let accion = prompt("Ingresa lo que estaba haciendo esta persona");
+let show = prompt("Ingresa un show:");
+let resultado =
+  nombre +
+  " estaba en " +
+  lugar +
+  " " +
+  accion +
+  " mientras miraba " +
+  show +
+  ".";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+document.getElementById("excuse").innerHTML = resultado;
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+let excusasGuardadas = localStorage.getItem("ultimasExcusas");
+
+if (excusasGuardadas === null) {
+  excusasGuardadas = [];
+} else {
+  excusasGuardadas = JSON.parse(excusasGuardadas);
+}
+
+excusasGuardadas.push(resultado);
+
+if (excusasGuardadas.length > 5) {
+  excusasGuardadas.shift();
+}
+
+localStorage.setItem("ultimasExcusas", JSON.stringify(excusasGuardadas));
+
+document.getElementById("excuses").innerHTML =
+  "<ol>" +
+  excusasGuardadas
+    .map(allexcuses => "<li>" + allexcuses + "</li>")
+    .join("<br>") +
+  "</ol>";
