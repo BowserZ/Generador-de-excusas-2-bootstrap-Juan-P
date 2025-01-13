@@ -16,7 +16,7 @@ document.getElementById("excuse").innerHTML = resultado;
 
 let excusasGuardadas = localStorage.getItem("ultimasExcusas");
 
-if (excusasGuardadas === null) {
+if (excusasGuardadas == null) {
   excusasGuardadas = [];
 } else {
   excusasGuardadas = JSON.parse(excusasGuardadas);
@@ -33,6 +33,8 @@ localStorage.setItem("ultimasExcusas", JSON.stringify(excusasGuardadas));
 document.getElementById("excuses").innerHTML =
   "<ol>" +
   excusasGuardadas
-    .map(allexcuses => "<li>" + allexcuses + "</li>")
+    .map((allexcuses) => "<li>" + allexcuses + "</li>")
     .join("<br>") +
   "</ol>";
+
+//Esta ultima parte se puede hacer de una manera más simple, si quieres lo hago, igual ya lo entiendo cuando se ha explicado (aunque que no se me vayan los conocimientos de esto es otra cosa).
